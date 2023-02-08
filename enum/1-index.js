@@ -7,3 +7,4 @@ var Statuses;
 })(Statuses || (Statuses = {}));
 ;
 console.log(Statuses.New);
+console.log(Statuses);
