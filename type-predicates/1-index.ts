@@ -4,6 +4,7 @@ interface User {
     age: number;
 }
 
+// Не обычная функция, а типовый предикат
 function isUser(user: any): user is User {
     return (user.id !== undefined) && (user.age !== undefined);
 }
@@ -19,7 +20,8 @@ const p = eval('({ id: 55, age: 33, name: "Mike"})') as unknown;
 
 // doSomeWithUser(p);          // ошибка на этапе компиляции
 
-if(isUser(p)) {
+// type guarding
+if(isUser(p)) {             // если iUser возвращает true, то p приводится к типу User
     console.log(p.id);      // 55
     console.log(p.age);     // 33
     // console.log(p.name);    // ошибка на этапе компиляции
